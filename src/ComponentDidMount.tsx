@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react";
-import "./App.css"
+import { useEffect, useState } from "react";
+import "./App.css";
 
 interface IUsers {
     id:string,
@@ -36,7 +36,7 @@ export default function ComponentDidMount(){
 function renderUser(user: IUsers):JSX.Element{
     return(
         <div className="grid-item" key={user.id}>
-            <img src={user.avatar}/>
+            <img src={user.avatar} alt=""/>
             <div>{user.email}</div>
             <div>{`${user.first_name} ${user.last_name}`}</div>
         </div>

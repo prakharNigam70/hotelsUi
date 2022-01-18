@@ -14,7 +14,7 @@ export default function SliceUI(){
         }
         dispatch(started())
         api();
-    } , [])
+    } , [dispatch])
 
     return(
         <div className="grid-container">{users.map(renderUser)}</div>
@@ -23,7 +23,7 @@ export default function SliceUI(){
 function renderUser(user: IUsers):JSX.Element{
     return(
         <div className="grid-item" key={user.id}>
-            <img src={user.avatar}/>
+            <img src={user.avatar} alt=""/>
             <div>{user.email}</div>
             <div>{`${user.first_name} ${user.last_name}`}</div>
         </div>

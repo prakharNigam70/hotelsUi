@@ -1,7 +1,6 @@
-import { useForm } from "react-hook-form"
+import firebase from 'firebase';
 import { useHistory } from "react-router";
 import Authentication, { IAuthentication } from "./Authentication";
-import firebase from 'firebase'
 
 export default function SignUp(){
     const history = useHistory()

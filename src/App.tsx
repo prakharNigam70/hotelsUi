@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 import { Redirect, Route } from 'react-router';
+import './App.css';
 import ComponentA from './ComponentA';
 import ComponentB from './ComponentB';
 import ComponentC from './ComponentC';
-import MainClass from './MainClass';
-import Increment from './Increment';
-import UserClass from './UsersClass';
-import Hooks from './Hooks';
 import ComponentDidMount from './ComponentDidMount';
 import ComponentDidUpdate from './ComponentDidUpdate';
-import ReducBasics from './ReduxBasics';
-import WebsiteReducerUI from './WebsitereducerUI';
-import SliceUI from './SliceUI';
-import HotelsUI from './HotelsUI';
+import Hooks from './Hooks';
 import HooksUI from './HooksUI';
-import SignUp from './SignUp';
+import HotelsUI from './HotelsUI';
+import Increment from './Increment';
 import Login from './Login';
+import MainClass from './MainClass';
 import MaterialUI from './MaterialUI';
 import Profile from './Profile';
+import ReducBasics from './ReduxBasics';
+import SignUp from './SignUp';
+import SliceUI from './SliceUI';
+import UserClass from './UsersClass';
+import WebsiteReducerUI from './WebsitereducerUI';
 
 function App() {
   return (

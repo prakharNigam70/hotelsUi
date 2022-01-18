@@ -14,7 +14,7 @@ export default function ReducBasics(){
         }
         dispatch({type: "started" })
         api();
-    } , [])
+    } , [dispatch])
 
 
     if(statusizedUsers.isLoading){
@@ -29,7 +29,7 @@ export default function ReducBasics(){
 function renderUser(user: IUsers):JSX.Element{
     return(
         <div className="grid-item" key={user.id}>
-            <img src={user.avatar}/>
+            <img src={user.avatar} alt=""/>
             <div>{user.email}</div>
             <div>{`${user.first_name} ${user.last_name}`}</div>
         </div>

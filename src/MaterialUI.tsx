@@ -1,5 +1,4 @@
-import { CircularProgress, makeStyles, TextField, Theme, Typography, Button, Fab, Card, CardMedia, CardContent, AppBar } from "@material-ui/core";
-import { props } from "cypress/types/bluebird";
+import { AppBar, Button, Card, CardContent, CardMedia, CircularProgress, Fab, makeStyles, TextField, Theme, Typography } from "@material-ui/core";
 
 interface IMaterialUIProps{
     background : string

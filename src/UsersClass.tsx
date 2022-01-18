@@ -63,7 +63,7 @@ export default class UserClass extends Component<{}, IState>{
     private renderUser(user: IUsers):JSX.Element{
         return(
             <Grid item key={user.id} xs={4}>
-                <img src={user.avatar}/>
+                <img src={user.avatar} alt=''/>
                 <div>{user.email}</div>
                 <div>{`${user.first_name} ${user.last_name}`}</div>
             </Grid>
