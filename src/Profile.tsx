@@ -29,7 +29,7 @@ export default function Profile(){
 
     return(
         <div className={styles.container}>
-        <Typography variant="h3">Welcome to Profile Page</Typography>
+        <Typography variant="h3">Welcome to Profile Page!</Typography>
         {context?.email && <Typography variant="h3">{context?.email}</Typography>}
         {context?.displayName && <Typography variant="h3">{context?.displayName}</Typography>}
         {context?.uid && <Typography variant="h3">{context?.uid}</Typography>}
