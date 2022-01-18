@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import { userInfo } from 'os';
 import React, { Component } from 'react';
 import './App.css';
 
