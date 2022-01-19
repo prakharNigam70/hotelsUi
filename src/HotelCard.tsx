@@ -3,7 +3,7 @@ import { IHotel } from "./HotelsSlice";
 
 const useStyles = makeStyles<Theme, {}>({
     container:{
-        height : "400px"
+        height : "350px"
     }
 })
 
@@ -14,11 +14,11 @@ export default function HotelCard(props : IHotel){
             <CardMedia
                 component="img"
                 image={props.featured_image}
-                height = {280}
+                height = {250}
                 alt={props.name}
             />
             <CardContent>
-                <Typography variant="h5">{props.name}</Typography>
+                <Typography variant="h6">{props.name}</Typography>
                 <Typography variant="body2">{props.cuisines}</Typography>
             </CardContent>
         </Card>

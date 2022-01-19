@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Redirect, Route } from 'react-router';
 import './App.css';
 import ComponentA from './ComponentA';
@@ -16,10 +17,12 @@ import Profile from './Profile';
 import ReducBasics from './ReduxBasics';
 import SignUp from './SignUp';
 import SliceUI from './SliceUI';
+import { UserContext } from './UserProvider';
 import UserClass from './UsersClass';
 import WebsiteReducerUI from './WebsitereducerUI';
 
 function App() {
+  const context = useContext(UserContext)
   return (
     <switch>
       <Route exact path='/a' component={ComponentA}/>
@@ -40,9 +43,9 @@ function App() {
       <Route exact path='/MaterialUI' component={MaterialUI}/>
       {/* Project */}
       <Route exact path='/HotelsUI' component={HotelsUI}/>
-      <Route exact path='/Login' component={Login}/>
-      <Route exact path='/SignUp' component={SignUp}/>
-      <Route exact path='/Profile' component={Profile}/>
+      {!context?.uid && <Route exact path='/Login' component={Login}/>}
+      {!context?.uid && <Route exact path='/SignUp' component={SignUp}/>}
+      {context?.uid && <Route exact path='/Profile' component={Profile}/>}
       <Route exact path='/' render={() => <Redirect to="/HotelsUI"/>}/>
 
 

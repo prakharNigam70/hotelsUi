@@ -20,6 +20,7 @@ export default function SignUp(){
                 label : "Login",
                 onClick : ()=> history.push("/Login")
             }}
+            height='65%'
             />
         </div>
     )

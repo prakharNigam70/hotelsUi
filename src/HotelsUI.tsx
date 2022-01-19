@@ -16,10 +16,10 @@ const useStyles = makeStyles({
     rootContainer : {
         display : "flex",
         alignItems : "center",
-        padding : "15px"
+        padding : "10px"
     },
     searchContainer : {
-        height : "90%",
+        height : "85%",
         display : "flex",
         background : "rgba(255,255,255,0.15)",
         flex : 0.8,
@@ -32,13 +32,16 @@ const useStyles = makeStyles({
     },
     textbox : {
         color : "white",
-        fontSize : "1.2rem"
+        fontSize : "1rem"
     },
     buttons : {
         flex : 0.2,
         display : "flex",
         justifyContent : "space-evenly",
         paddingLeft : "10px"
+    },
+    button : {
+        color : "white"
     }
 })
 
@@ -77,9 +80,9 @@ export default function HotelsUI(){
                     />
                 </div>
                 <div className={styles.buttons}>
-                    {context?.uid && <Button onClick={()=> history.push("/Profile")}>PROFILE</Button>}
-                    {!context?.uid && <Button onClick={()=> history.push("/SignUp")}>SIGN UP</Button>}
-                    {!context?.uid && <Button onClick={()=> history.push("/Login")}>LOGIN</Button>}
+                    {context?.uid && <Button className={styles.button} onClick={()=> history.push("/Profile")}>PROFILE</Button>}
+                    {!context?.uid && <Button className={styles.button} onClick={()=> history.push("/SignUp")}>SIGN UP</Button>}
+                    {!context?.uid && <Button className={styles.button} onClick={()=> history.push("/Login")}>LOGIN</Button>}
                 </div>
             </Container>
         </AppBar>

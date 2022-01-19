@@ -16,10 +16,15 @@ interface IProps{
     isUserNameVisible : boolean,
     title : string,
     tertiary : IButtonItem,
-    onSubmit : (data : IAuthentication) => void
+    onSubmit : (data : IAuthentication) => void,
+    height : string
 }
 
-const useStyles = makeStyles<Theme, {}>({
+interface MUIProps{
+    height : string
+}
+
+const useStyles = makeStyles<Theme, MUIProps>({
     container:{
         width : "100%",
         display : "flex",
@@ -38,7 +43,7 @@ const useStyles = makeStyles<Theme, {}>({
     },
     innerDiv: {
         width : "60%",
-        height : "60%",
+        height : (props) => props.height,
         display : "flex",
         flexDirection : "column",
         justifyContent : "space-evenly",
@@ -58,7 +63,7 @@ const useStyles = makeStyles<Theme, {}>({
 })
 
 export default function Authentication(props : IProps){
-    const styles = useStyles();
+    const styles = useStyles({height : props.height});
     const {register, reset, handleSubmit, formState:{errors}} = useForm<IAuthentication>();
     const history = useHistory();
     const [isLoading, setloading] = useState(false);
@@ -80,7 +85,7 @@ export default function Authentication(props : IProps){
         <>
         <div className={styles.outerDiv}>
             <div className={styles.innerDiv}>
-                <Typography variant="h3" className={styles.title}>{props.title}</Typography>
+                <Typography variant="h4" className={styles.title}>{props.title}</Typography>
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
                     {props.isUserNameVisible && 
                     <TextField {...register("userName", {
@@ -109,7 +114,7 @@ export default function Authentication(props : IProps){
 
                     <TextField type="password" {...register("password", {
                         required : true,
-                        minLength : {value : 5, message : "Password should have a minimum length of 5"},
+                        minLength : {value : 6, message : "Password should have a minimum length of 6"},
                     })}
                      variant="outlined" 
                      placeholder="Password" 
