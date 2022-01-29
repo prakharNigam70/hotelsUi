@@ -53,15 +53,44 @@ export default function HotelsUI(){
     const [searchString, setSearchString] = useState("");
 
     const hotels : IHotel[] = useSelector((state : AppState) => state.HotelsSlice)
-    useEffect(()=>{
-        async function api(){
-            const response = await fetch("/hotel.json");
-            const json = await response.json();
-            dispatch(completed(json.map((x: { restaurant: IHotel }) => x.restaurant)))
-        }
-        dispatch(started());
-        api();
-    } , [dispatch])
+
+        useEffect(() => {
+            async function api() {
+            
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            
+            var graphql = JSON.stringify({
+                query: "{\n  hotels {\n    id, name, cuisines, featured_image\n  }\n}",
+                variables: {}
+            })
+            var requestOptions: RequestInit = {
+                method: 'POST',
+                headers: myHeaders,
+                body: graphql,
+                redirect: 'follow'
+            };
+            
+            const response = await fetch("https://dry-reef-15191.herokuapp.com/graphql", requestOptions);
+            const json: {data:{hotels: IHotel[]}} = await response.json();
+            dispatch(completed(json.data.hotels));
+            }
+            dispatch(started());
+            api();
+        }, [dispatch]);
+    
+
+
+
+    // useEffect(()=>{
+    //     async function api(){
+    //         const response = await fetch("/hotel.json");
+    //         const json = await response.json();
+    //         dispatch(completed(json.map((x: { restaurant: IHotel }) => x.restaurant)))
+    //     }
+    //     dispatch(started());
+    //     api();
+    // } , [dispatch])
 
     return(
         <>
@@ -80,9 +109,9 @@ export default function HotelsUI(){
                     />
                 </div>
                 <div className={styles.buttons}>
-                    {context?.uid && <Button className={styles.button} onClick={()=> history.push("/Profile")}>PROFILE</Button>}
-                    {!context?.uid && <Button className={styles.button} onClick={()=> history.push("/SignUp")}>SIGN UP</Button>}
-                    {!context?.uid && <Button className={styles.button} onClick={()=> history.push("/Login")}>LOGIN</Button>}
+                    {context?.uid && <Button className={styles.button} id="profileButton" onClick={()=> history.push("/Profile")}>PROFILE</Button>}
+                    {!context?.uid && <Button className={styles.button} id="signupButton" onClick={()=> history.push("/SignUp")}>SIGN UP</Button>}
+                    {!context?.uid && <Button className={styles.button} id="loginButton" onClick={()=> history.push("/Login")}>LOGIN</Button>}
                 </div>
             </Container>
         </AppBar>

@@ -97,7 +97,7 @@ export default function Authentication(props : IProps){
                      required={true}
                      label = "user Name"
                     error={errors && errors.userName?.message ? true : false}
-                     helperText={errors.userName?.message}/>
+                     helperText={errors.userName?.message} id="username"/>
                     }
 
                     <TextField type="email" {...register("email", {
@@ -110,7 +110,7 @@ export default function Authentication(props : IProps){
                      required={true}
                      label = "Email address"
                     error={errors && errors.email?.message ? true : false}
-                     helperText={errors.email?.message}/>
+                     helperText={errors.email?.message} id="emailId"/>
 
                     <TextField type="password" {...register("password", {
                         required : true,
@@ -121,7 +121,7 @@ export default function Authentication(props : IProps){
                      required={true}
                      label = "Password"
                     error={errors && errors.password?.message ? true : false} 
-                    helperText={errors.password?.message}/>
+                    helperText={errors.password?.message} id="password"/>
 
                     <div className={styles.buttons}>
                         <FormButtons
@@ -137,7 +137,7 @@ export default function Authentication(props : IProps){
                         />
                     </div>
             </form>
-            {errorMessage !== ""? <Typography variant="h5" className={styles.errorMessage}>{errorMessage}</Typography> : null}
+            {errorMessage !== ""? <Typography variant="h5" id="errorMessage" className={styles.errorMessage}>{errorMessage}</Typography> : null}
             {isLoading && <LoadingSpinner/>}
             </div>
         </div>
