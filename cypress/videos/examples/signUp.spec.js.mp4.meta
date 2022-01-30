@@ -1,0 +1,26 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=10656
+END=27758
+title=sign up testing home page button
+[CHAPTER]
+TIMEBASE=1/1000
+START=36130
+END=44879
+title=sign up testing reset button
+[CHAPTER]
+TIMEBASE=1/1000
+START=47636
+END=53665
+title=sign up testing Login button
+[CHAPTER]
+TIMEBASE=1/1000
+START=41421
+END=59716
+title=sign up testing Already existing email address
+[CHAPTER]
+TIMEBASE=1/1000
+START=60413
+END=78072
+title=sign up testing Already existing email address
