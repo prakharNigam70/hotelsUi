@@ -16,6 +16,7 @@ import MaterialUI from './MaterialUI';
 import Profile from './Profile';
 import ReducBasics from './ReduxBasics';
 import SignUp from './SignUp';
+import SimpleJest from './SimpleJest';
 import SliceUI from './SliceUI';
 import { UserContext } from './UserProvider';
 import UserClass from './UsersClass';
@@ -46,6 +47,12 @@ function App() {
       {!context?.uid && <Route exact path='/Login' component={Login}/>}
       {!context?.uid && <Route exact path='/SignUp' component={SignUp}/>}
       {context?.uid && <Route exact path='/Profile' component={Profile}/>}
+
+    {/* Jest tests */}
+    <Route exact path='/SimpleJest' component={SimpleJest}/>
+
+
+
       <Route exact path='/' render={() => <Redirect to="/HotelsUI"/>}/>
 
 
